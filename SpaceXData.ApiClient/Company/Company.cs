@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SpaceXData.ApiClient.Company;
 
-public sealed class GetCompanyResponse
+public sealed class Company
 {
     [JsonPropertyName("headquarters")]
     public Headquarters Headquarters { get; set; }

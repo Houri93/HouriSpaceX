@@ -16,8 +16,9 @@
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <MudNavMenu>
-            <MudNavLink Href="/">Home</MudNavLink>
+            <MudNavLink Href="/" Match="NavLinkMatch.All">Home</MudNavLink>
             <MudNavLink Href="/capsules">Capsules</MudNavLink>
+            <MudNavLink Href="/company">Company</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
     <MudMainContent>

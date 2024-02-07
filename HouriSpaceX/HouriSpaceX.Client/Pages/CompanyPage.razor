@@ -1,0 +1,26 @@
+﻿@using HouriSpaceX.ApiClient
+@using HouriSpaceX.Client.Layout
+@using HouriSpaceX.Dtos
+
+@page "/company"
+
+@inject HouriSpaceXApiClient client
+
+@if (loading)
+{
+    <Loading />
+}
+
+
+
+<MudText Typo="Typo.h5">Company</MudText>
+
+@code {
+    CompanyDto company;
+    bool loading = true;
+    protected override async Task OnInitializedAsync()
+    {
+        company = await client.GetCompanyAsync();
+        loading = false;
+    }
+}

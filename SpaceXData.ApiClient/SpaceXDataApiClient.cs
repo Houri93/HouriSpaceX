@@ -21,65 +21,65 @@ namespace SpaceXData.ApiClient;
 
 public sealed class SpaceXDataApiClient(IConfiguration configuration, IHttpClientFactory httpClientFactory)
 {
-    public async Task<GetAllCapsulesResponse> GetAllCapsulesAsync()
+    public async Task<Capsule[]> GetAllCapsulesAsync()
     {
-        return await SendAsync<GetAllCapsulesResponse>(HttpMethod.Get, "capsules");
+        return await SendAsync<Capsule[]>(HttpMethod.Get, "capsules");
     }
 
-    public async Task<GetCompanyResponse> GetCompanyAsync()
+    public async Task<Company.Company> GetCompanyAsync()
     {
-        return await SendAsync<GetCompanyResponse>(HttpMethod.Get, "company");
+        return await SendAsync<Company.Company>(HttpMethod.Get, "company");
     }
 
-    public async Task<GetAllCoresResponse> GetAllCoresAsync()
+    public async Task<Cores.Core[]> GetAllCoresAsync()
     {
-        return await SendAsync<GetAllCoresResponse>(HttpMethod.Get, "cores");
+        return await SendAsync<Cores.Core[]>(HttpMethod.Get, "cores");
     }
 
-    public async Task<GetAllCrewResponse> GetAllCrewAsync()
+    public async Task<CrewMember[]> GetAllCrewAsync()
     {
-        return await SendAsync<GetAllCrewResponse>(HttpMethod.Get, "crew");
+        return await SendAsync<CrewMember[]>(HttpMethod.Get, "crew");
     }
 
-    public async Task<GetAllDragonsResponse> GetAllDragonsAsync()
+    public async Task<Dragons.Dragon[]> GetAllDragonsAsync()
     {
-        return await SendAsync<GetAllDragonsResponse>(HttpMethod.Get, "dragons");
+        return await SendAsync<Dragons.Dragon[]>(HttpMethod.Get, "dragons");
     }
-    public async Task<GetAllHistoryResponse> GetAllHistoryAsync()
+    public async Task<History.History[]> GetAllHistoryAsync()
     {
-        return await SendAsync<GetAllHistoryResponse>(HttpMethod.Get, "history");
+        return await SendAsync<History.History[]>(HttpMethod.Get, "history");
     }
-    public async Task<GetAllLandPadsResponse> GetAllLandPadsAsync()
+    public async Task<Launchpads.Launchpad[]> GetAllLandPadsAsync()
     {
-        return await SendAsync<GetAllLandPadsResponse>(HttpMethod.Get, "landpads");
+        return await SendAsync<Launchpads.Launchpad[]>(HttpMethod.Get, "landpads");
     }
-    public async Task<GetAllLaunchesResponse> GetAllLaunchesAsync()
+    public async Task<Launches.Launche[]> GetAllLaunchesAsync()
     {
-        return await SendAsync<GetAllLaunchesResponse>(HttpMethod.Get, "launches");
-    } 
-    public async Task<GetAllLaunchpadsResponse> GetAllLaunchpadsAsync()
-    {
-        return await SendAsync<GetAllLaunchpadsResponse>(HttpMethod.Get, "launchpads");
+        return await SendAsync<Launches.Launche[]>(HttpMethod.Get, "launches");
     }
-    public async Task<GetAllPayloadsResponse> GetAllPayloadsAsync()
+    public async Task<Launchpads.Launchpad[]> GetAllLaunchpadsAsync()
     {
-        return await SendAsync<GetAllPayloadsResponse>(HttpMethod.Get, "payloads");
+        return await SendAsync<Launchpads.Launchpad[]>(HttpMethod.Get, "launchpads");
+    }
+    public async Task<Payloads.Payload[]> GetAllPayloadsAsync()
+    {
+        return await SendAsync<Payloads.Payload[]>(HttpMethod.Get, "payloads");
     }
     public async Task<GetRoadsterResponse> GetRoadsterAsync()
     {
         return await SendAsync<GetRoadsterResponse>(HttpMethod.Get, "roadster");
     }
-    public async Task<GetAllRocketsResponse> GetAllRocketsAsync()
+    public async Task<Rockets.Rocket[]> GetAllRocketsAsync()
     {
-        return await SendAsync<GetAllRocketsResponse>(HttpMethod.Get, "rockets");
-    } 
-    public async Task<GetAllShipsReponse> GetAllShipsAsync()
-    {
-        return await SendAsync<GetAllShipsReponse>(HttpMethod.Get, "ships");
+        return await SendAsync< Rockets.Rocket[]> (HttpMethod.Get, "rockets");
     }
-    public async Task<GetAllStarlinkSatellitesResponse> GetAllStarlinkSatellitesAsync()
+    public async Task<Ships.Ship[]> GetAllShipsAsync()
     {
-        return await SendAsync<GetAllStarlinkSatellitesResponse>(HttpMethod.Get, "starlink");
+        return await SendAsync<Ships.Ship[]>(HttpMethod.Get, "ships");
+    }
+    public async Task<Starlink.StarlinkSatellite[]> GetAllStarlinkSatellitesAsync()
+    {
+        return await SendAsync<Starlink.StarlinkSatellite[]>(HttpMethod.Get, "starlink");
     }
 
     private async Task<T> SendAsync<T>(HttpMethod httpMethod, string endpoint)
@@ -93,7 +93,8 @@ public sealed class SpaceXDataApiClient(IConfiguration configuration, IHttpClien
 
         var response = await httpClient.SendAsync(request);
 
-        return await response.EnsureSuccessStatusCode()
+        var content = await response.EnsureSuccessStatusCode()
               .Content.ReadFromJsonAsync<T>();
+        return content;
     }
 }

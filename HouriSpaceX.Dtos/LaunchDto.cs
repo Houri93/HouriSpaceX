@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceXData.ApiClient.Cores;
-
-public sealed class GetAllCoresResponse
+namespace HouriSpaceX.Dtos;
+public sealed class LaunchDto
 {
-    public Core[] Cores { get; set; }
-}
 
+}

@@ -4,16 +4,18 @@ using HouriSpaceX.Server.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+using SpaceXData.ApiClient.Company;
+
 namespace HouriSpaceX.Server.Controllers;
 
 [ApiController]
-[Route("api/v1/capsules")]
+[Route("api/v1/company")]
 //[Authorize]
-public sealed class CapsulesController(CapsulesService capsulesService) : ControllerBase
+public sealed class CompanyController(CompanyService companyService) : ControllerBase
 {
     [HttpGet]
-    public async Task<CapsuleDto[]> GetAll()
+    public async Task<CompanyDto> Get()
     {
-        return await capsulesService.GetAllAsync();
+        return await companyService.GetAsync();
     }
 }

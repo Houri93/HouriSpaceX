@@ -44,10 +44,10 @@ public sealed class Launche
     public List<object> Ships { get; set; }
 
     [JsonPropertyName("capsules")]
-    public List<string> Capsules { get; set; }
+    public string[] Capsules { get; set; }
 
     [JsonPropertyName("payloads")]
-    public List<string> Payloads { get; set; }
+    public string[] Payloads { get; set; }
 
     [JsonPropertyName("launchpad")]
     public string Launchpad { get; set; }

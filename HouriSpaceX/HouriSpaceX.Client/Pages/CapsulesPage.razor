@@ -1,11 +1,42 @@
 ﻿@page "/capsules"
 @using HouriSpaceX.ApiClient
+@using HouriSpaceX.Dtos
 @inject HouriSpaceXApiClient client
 
+<MudText Typo="Typo.h5">Capsules</MudText>
 
-@code {
+<MudTable T="CapsuleDto" Items="capsules" AllowUnsorted="false" Loading="loading" FixedHeader="true" Height="calc(100vh - 150px)" SortLabel="Sort By">
+
+    <HeaderContent>
+        <MudTh><MudTableSortLabel T="CapsuleDto" InitialDirection="SortDirection.Ascending" SortBy="a=>a.Serial">Serial</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.Type">Type</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.Status">Status</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.LastUpdate">Last Update</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.LandLandings">Land Landings</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.WaterLandings">Water Landings</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.ReuseCount">ReuseCount</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.Launches">Launches</MudTableSortLabel></MudTh>
+
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Serial">@context.Serial</MudTd>
+            <MudTd DataLabel="Type">@context.Type</MudTd>
+            <MudTd DataLabel="Status">@context.Status</MudTd>
+            <MudTd DataLabel="Last Update">@context.LastUpdate</MudTd>
+            <MudTd DataLabel="Land Landings">@context.LandLandings</MudTd>
+            <MudTd DataLabel="Water Landings">@context.WaterLandings</MudTd>
+            <MudTd DataLabel="Reuse Count">@context.ReuseCount</MudTd>
+            <MudTd DataLabel="Launches">@context.Launches.Length</MudTd>
+        </RowTemplate>
+
+    </MudTable>
+
+    @code {
+    CapsuleDto[] capsules = [];
+    bool loading = true;
     protected override async Task OnInitializedAsync()
     {
-        var capsules = await client.GetAllCapsulesAsync();
+        capsules = await client.GetAllCapsulesAsync();
+        loading = false;
     }
 }

@@ -8,6 +8,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<HouriSpaceXApiClient>();
+builder.Services.AddScoped<HouriSpaceXApiClient>();
 
 await builder.Build().RunAsync();
