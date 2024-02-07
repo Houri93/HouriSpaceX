@@ -1,0 +1,63 @@
+﻿@using HouriSpaceX.ApiClient
+@using HouriSpaceX.Client.Layout
+@using HouriSpaceX.Dtos
+
+@page "/crew"
+
+@inject HouriSpaceXApiClient client
+
+<PageTitle>Crew</PageTitle>
+
+@if (loading)
+{
+    <Loading />
+}
+else
+{
+
+    <MudText Color="Color.Primary" Typo="Typo.h5">Crew (@crewMembers.Length)</MudText>
+    <MudGrid Style="height:calc(100vh - 60px)" Class="mt-5" Spacing="5" Justify="Justify.Center">
+        @foreach (var crew in crewMembers)
+        {
+            <MudCard Class="ma-3" Style="width:350px">
+                <MudCardMedia Image="@crew.Image" Height="400" />
+                <MudCardContent>
+                    <MudText Typo="Typo.h5" Color="Color.Tertiary">@crew.Name</MudText>
+                    <MudStack Row="true">
+                          <MudText Typo="Typo.body2" Color="Color.Primary">Agency</MudText>
+                          <MudText Typo="Typo.body2">@crew.Agency</MudText>
+                    </MudStack>
+
+                        <MudStack Row="true">
+                            <MudText Typo="Typo.body2" Color="Color.Primary">Status</MudText>
+                            <MudText Typo="Typo.body2">@crew.Status</MudText>
+                        </MudStack> 
+                        
+                        <MudStack Row="true">
+                            <MudText Typo="Typo.body2" Color="Color.Primary">Launches</MudText>
+                            <MudText Typo="Typo.body2">@crew.Launches.Length</MudText>
+                        </MudStack>
+                
+                    </MudCardContent>
+                    <MudCardActions>
+                        <MudSpacer/>
+                        <MudLink Href="@crew.Wikipedia" Underline="Underline.Always" Color="Color.Secondary">Wikipedia</MudLink>                      
+                    </MudCardActions>
+                </MudCard>
+        }
+    </MudGrid>
+}
+
+
+
+
+
+@code {
+    CrewDto[] crewMembers;
+    bool loading = true;
+    protected override async Task OnInitializedAsync()
+    {
+        crewMembers = await client.GetAllCrewAsync();
+        loading = false;
+    }
+}

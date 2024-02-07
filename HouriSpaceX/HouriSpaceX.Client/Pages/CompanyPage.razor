@@ -2,18 +2,93 @@
 @using HouriSpaceX.Client.Layout
 @using HouriSpaceX.Dtos
 
-@page "/company"
+@page "/"
 
 @inject HouriSpaceXApiClient client
+
+<PageTitle>Company</PageTitle>
 
 @if (loading)
 {
     <Loading />
 }
+else
+{
+
+    <MudText Color="Color.Primary" Align="Align.Center" Typo="Typo.h3">@company.Name</MudText>
+
+    <MudText Typo="Typo.h4" Class="mt-5" Align="Align.Center">@company.Summary</MudText>
+
+    <MudDivider Class="my-5" />
+
+
+    <MudStack Row="true" Spacing="10" AlignItems="AlignItems.Center" Style="width:100%" Justify="Justify.SpaceEvenly">
+        <MudStack>
+            <MudStack Row="true">
+                <MudText Color="Color.Secondary">Founded</MudText>
+                <MudText>@company.Founded</MudText>
+                </MudStack>
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Founder</MudText>
+                    <MudText>@company.Founder</MudText>
+                </MudStack>
 
 
 
-<MudText Typo="Typo.h5">Company</MudText>
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">CEO</MudText>
+                    <MudText>@company.Ceo</MudText>
+
+                </MudStack>
+
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">COO</MudText>
+                    <MudText>@company.Cto</MudText>
+                </MudStack>
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Cto Propulsion</MudText>
+                    <MudText>@company.CtoPropulsion</MudText>
+                </MudStack>
+
+            </MudStack>
+
+            <MudStack>
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Valuation</MudText>
+                    <MudText>$@(company.Valuation / 1000_000_000)M</MudText>
+                </MudStack>
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Employees</MudText>
+                    <MudText>@company.Employees</MudText>
+                </MudStack>
+
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Vehicles</MudText>
+                    <MudText>@company.Vehicles</MudText>
+                </MudStack>
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Launch Sites</MudText>
+                    <MudText>@company.LaunchSites</MudText>
+                </MudStack>
+
+                <MudStack Row="true">
+                    <MudText Color="Color.Secondary">Test Sites</MudText>
+                    <MudText>@company.TestSites</MudText>
+                </MudStack>
+            </MudStack>
+
+        </MudStack>
+}
+
+
+
+
 
 @code {
     CompanyDto company;

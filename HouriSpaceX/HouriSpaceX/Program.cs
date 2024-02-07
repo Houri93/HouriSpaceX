@@ -1,3 +1,4 @@
+using HouriSpaceX.ApiClient;
 using HouriSpaceX.Server.Components;
 using HouriSpaceX.Server.Services;
 
@@ -15,10 +16,21 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
-builder.Services.AddScoped<CapsulesService>();
 builder.Services.AddScoped<SpaceXDataApiClient>();
+builder.Services.AddScoped<HouriSpaceXApiClient>();
+
+builder.Services.AddScoped<CapsulesService>();
+builder.Services.AddScoped<CompanyService>();
+builder.Services.AddScoped<CoresService>();
+builder.Services.AddScoped<CrewService>();
+
 
 builder.Services.AddSingleton<CapsuleMapper>();
+builder.Services.AddSingleton<CompanyMapper>();
+builder.Services.AddSingleton<CompanyLinksMapper>();
+builder.Services.AddSingleton<HeadquartersMapper>();
+builder.Services.AddSingleton<CoresMapper>();
+builder.Services.AddSingleton<CrewMapper>();
 
 builder.Services.AddMudServices();
 builder.Services.AddHttpClient();

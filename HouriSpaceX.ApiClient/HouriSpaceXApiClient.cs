@@ -16,6 +16,16 @@ public sealed class HouriSpaceXApiClient(IConfiguration configuration, IHttpClie
     public async Task<CompanyDto> GetCompanyAsync()
     {
         return await SendAsync<CompanyDto>(HttpMethod.Get, "company");
+    } 
+    
+    public async Task<CoresDto[]> GetAllCoresAsync()
+    {
+        return await SendAsync<CoresDto[]>(HttpMethod.Get, "cores");
+    } 
+    
+    public async Task<CrewDto[]> GetAllCrewAsync()
+    {
+        return await SendAsync<CrewDto[]>(HttpMethod.Get, "crew");
     }
 
  

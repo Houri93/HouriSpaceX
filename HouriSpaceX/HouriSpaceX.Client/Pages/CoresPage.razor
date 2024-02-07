@@ -1,0 +1,48 @@
+﻿@page "/cores"
+@using HouriSpaceX.ApiClient
+@using HouriSpaceX.Dtos
+@inject HouriSpaceXApiClient client
+
+<PageTitle>Cores</PageTitle>
+
+
+<MudText Class="ml-5 mb-5" Typo="Typo.h5" Color="Color.Primary">Cores</MudText>
+
+<MudTable T="CoresDto" Items="cores" AllowUnsorted="false" Loading="loading" FixedHeader="true" Height="calc(100vh - 150px)" SortLabel="Sort By">
+
+    <HeaderContent>
+        <MudTh><MudTableSortLabel T="CoresDto" InitialDirection="SortDirection.Ascending" SortBy="a=>a.Serial">Serial</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.Status">Status</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.LastUpdate">Last Update</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.AsdsLandings">ASDS Landings</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.AsdsAttempts">ASDS Attempts</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.RtlsLandings">RTLS Landings</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.RtlsAttempts">RTLS Attempts</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.ReuseCount">Reuse Count</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CoresDto" SortBy="a=>a.Launches.Length">Launches</MudTableSortLabel></MudTh>
+
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Serial">@context.Serial</MudTd>
+            <MudTd DataLabel="Status">@context.Status</MudTd>
+            <MudTd DataLabel="LastUpdate">@context.LastUpdate</MudTd>
+            <MudTd DataLabel="ASDS Landings">@context.AsdsLandings</MudTd>
+            <MudTd DataLabel="ASDS Attempts">@context.AsdsAttempts</MudTd>
+            <MudTd DataLabel="RTLS Landings">@context.RtlsLandings</MudTd>
+            <MudTd DataLabel="RTLS Attempts">@context.RtlsAttempts</MudTd>
+            <MudTd DataLabel="Reuse Count">@context.ReuseCount</MudTd>
+            <MudTd DataLabel="Launches">@context.Launches.Length</MudTd>
+        
+        </RowTemplate>
+
+    </MudTable>
+
+    @code {
+    CoresDto[] cores = [];
+    bool loading = true;
+    protected override async Task OnInitializedAsync()
+    {
+        cores = await client.GetAllCoresAsync();
+        loading = false;
+    }
+}

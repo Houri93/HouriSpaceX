@@ -5,27 +5,19 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SpaceXData.ApiClient.Crew;
-public sealed class CrewMember
+namespace HouriSpaceX.Dtos;
+public sealed class CrewDto
 {
-    [JsonPropertyName("name")]
     public string Name { get; set; }
 
-    [JsonPropertyName("agency")]
     public string Agency { get; set; }
 
-    [JsonPropertyName("image")]
     public string Image { get; set; }
 
-    [JsonPropertyName("wikipedia")]
     public string Wikipedia { get; set; }
 
-    [JsonPropertyName("launches")]
     public string[] Launches { get; set; }
 
-    [JsonPropertyName("status")]
     public string Status { get; set; }
 
-    [JsonPropertyName("id")]
-    public string Id { get; set; }
 }

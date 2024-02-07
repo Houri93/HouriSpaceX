@@ -3,7 +3,10 @@
 @using HouriSpaceX.Dtos
 @inject HouriSpaceXApiClient client
 
-<MudText Typo="Typo.h5">Capsules</MudText>
+<PageTitle>Capsules</PageTitle>
+
+
+<MudText Class="ml-5 mb-5" Typo="Typo.h5" Color="Color.Primary">Capsules</MudText>
 
 <MudTable T="CapsuleDto" Items="capsules" AllowUnsorted="false" Loading="loading" FixedHeader="true" Height="calc(100vh - 150px)" SortLabel="Sort By">
 
@@ -14,8 +17,8 @@
         <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.LastUpdate">Last Update</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.LandLandings">Land Landings</MudTableSortLabel></MudTh>
         <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.WaterLandings">Water Landings</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.ReuseCount">ReuseCount</MudTableSortLabel></MudTh>
-        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.Launches">Launches</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.ReuseCount">Reuse Count</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel T="CapsuleDto" SortBy="a=>a.Launches.Length">Launches</MudTableSortLabel></MudTh>
 
     </HeaderContent>
     <RowTemplate>

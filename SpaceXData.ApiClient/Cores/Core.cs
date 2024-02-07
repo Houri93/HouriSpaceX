@@ -5,22 +5,22 @@ namespace SpaceXData.ApiClient.Cores;
 public sealed class Core
 {
     [JsonPropertyName("block")]
-    public int Block { get; set; }
+    public int? Block { get; set; }
 
     [JsonPropertyName("reuse_count")]
-    public int ReuseCount { get; set; }
+    public int? ReuseCount { get; set; }
 
     [JsonPropertyName("rtls_attempts")]
-    public int RtlsAttempts { get; set; }
+    public int? RtlsAttempts { get; set; }
 
     [JsonPropertyName("rtls_landings")]
-    public int RtlsLandings { get; set; }
+    public int? RtlsLandings { get; set; }
 
     [JsonPropertyName("asds_attempts")]
-    public int AsdsAttempts { get; set; }
+    public int? AsdsAttempts { get; set; }
 
     [JsonPropertyName("asds_landings")]
-    public int AsdsLandings { get; set; }
+    public int? AsdsLandings { get; set; }
 
     [JsonPropertyName("last_update")]
     public string LastUpdate { get; set; }
