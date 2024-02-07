@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceXData.ApiClient", "Spa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiClients", "ApiClients", "{DA1A12EF-6252-4537-A5EF-86C18325174C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouriSpaceX.Dtos", "HouriSpaceX.Dtos\HouriSpaceX.Dtos.csproj", "{9DA99AEE-002D-49F5-8811-47258B72616B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA99AEE-002D-49F5-8811-47258B72616B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA99AEE-002D-49F5-8811-47258B72616B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA99AEE-002D-49F5-8811-47258B72616B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA99AEE-002D-49F5-8811-47258B72616B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

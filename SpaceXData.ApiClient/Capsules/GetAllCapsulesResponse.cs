@@ -7,5 +7,5 @@ using System.Threading.Tasks;
 namespace SpaceXData.ApiClient.Capsules;
 public sealed class GetAllCapsulesResponse
 {
-    public Capsule[] Capsule { get; set; }
+    public Capsule[] Capsules { get; set; }
 }

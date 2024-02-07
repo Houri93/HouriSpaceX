@@ -88,7 +88,7 @@ public sealed class SpaceXDataApiClient(IConfiguration configuration, IHttpClien
 
         var url = $"{baseUrl}{endpoint}";
 
-        using var httpClient = new HttpClient();
+        using var httpClient = httpClientFactory.CreateClient();
         using var request = new HttpRequestMessage(httpMethod, url);
 
         var response = await httpClient.SendAsync(request);

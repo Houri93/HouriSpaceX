@@ -1,6 +1,10 @@
 using HouriSpaceX.Server.Components;
 using HouriSpaceX.Server.Services;
 
+using MudBlazor.Services;
+
+using SpaceXData.ApiClient;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,7 +13,12 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddScoped<CapsulesService>();
+builder.Services.AddScoped<SpaceXDataApiClient>();
 
+builder.Services.AddSingleton<CapsuleMapper>();
+
+builder.Services.AddMudServices();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

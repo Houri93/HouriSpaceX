@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\HouriSpaceX.Dtos\HouriSpaceX.Dtos.csproj" />
     <ProjectReference Include="..\..\SpaceXData.ApiClient\SpaceXData.ApiClient.csproj" />
     <ProjectReference Include="..\HouriSpaceX.Client\HouriSpaceX.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
     <PackageReference Include="MudBlazor" Version="6.15.0" />
+    <PackageReference Include="Riok.Mapperly" Version="3.3.0" />
   </ItemGroup>
 
 </Project>

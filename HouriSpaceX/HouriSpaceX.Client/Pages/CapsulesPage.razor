@@ -1,0 +1,11 @@
+﻿@page "/capsules"
+@using HouriSpaceX.ApiClient
+@inject HouriSpaceXApiClient client
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var capsules = await client.GetAllCapsulesAsync();
+    }
+}
