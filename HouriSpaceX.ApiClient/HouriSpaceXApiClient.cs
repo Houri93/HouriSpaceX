@@ -1,6 +1,8 @@
-﻿namespace HouriSpaceX.ApiClient;
+﻿using Microsoft.Extensions.Configuration;
 
-public sealed class HouriSpaceXApiClient
+namespace HouriSpaceX.ApiClient;
+
+public sealed class HouriSpaceXApiClient(IConfiguration configuration)
 {
-
+   
 }

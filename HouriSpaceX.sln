@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouriSpaceX.Server", "HouriSpaceX\HouriSpaceX\HouriSpaceX.Server.csproj", "{B1902FA1-70A9-4FB9-876E-9C8DA1569917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouriSpaceX.Server", "HouriSpaceX\HouriSpaceX\HouriSpaceX.Server.csproj", "{B1902FA1-70A9-4FB9-876E-9C8DA1569917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouriSpaceX.Client", "HouriSpaceX\HouriSpaceX.Client\HouriSpaceX.Client.csproj", "{FF993F0E-D897-4667-99D0-F64D2D2A622D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouriSpaceX.Client", "HouriSpaceX\HouriSpaceX.Client\HouriSpaceX.Client.csproj", "{FF993F0E-D897-4667-99D0-F64D2D2A622D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouriSpaceX.ApiClient", "HouriSpaceX.ApiClient\HouriSpaceX.ApiClient.csproj", "{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HouriSpaceX.ApiClient", "HouriSpaceX.ApiClient\HouriSpaceX.ApiClient.csproj", "{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceXData.ApiClient", "SpaceXData.ApiClient\SpaceXData.ApiClient.csproj", "{BF3B6861-C0B2-4C78-A6EC-39196A11281B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiClients", "ApiClients", "{DA1A12EF-6252-4537-A5EF-86C18325174C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +31,17 @@ Global
 		{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF3B6861-C0B2-4C78-A6EC-39196A11281B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90032D69-C7B7-4404-B0D8-BD1B6D1DA30A} = {DA1A12EF-6252-4537-A5EF-86C18325174C}
+		{BF3B6861-C0B2-4C78-A6EC-39196A11281B} = {DA1A12EF-6252-4537-A5EF-86C18325174C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {701EE156-5458-47EB-9A58-5BBEB901275E}
